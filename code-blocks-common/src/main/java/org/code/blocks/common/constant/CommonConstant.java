@@ -12,6 +12,9 @@ public class CommonConstant {
      */
     public static final String UTF_8 = "UTF-8";
 
+    /** bytes32 length**/
+    public static final Integer BYTES32_FIXED_LENGTH = 32;
+
     /**
      * 空
      */
@@ -26,4 +29,19 @@ public class CommonConstant {
      * |
      */
     public static final String SYMBOL_VERTICAL = "|";
+
+    /**
+     * :
+     */
+    public static final String SYMBOL_SEMICOLON = ":";
+
+    /**
+     * .
+     */
+    public static final String SYMBOL_POINT = ".";
+
+    /**
+     * -
+     */
+    public static final String SYMBOL_HORIZONTAL = "-";
 }

@@ -20,8 +20,8 @@ public class TreeUtilTest {
     @Test
     public void getMap() {
         List<Menu> list = buildListMenu();
-        ListUtil.sort(list, true, "id");
-        ListUtil.sort(list, true, "typeLevel");
+        ListUtils.sort(list, true, "id");
+        ListUtils.sort(list, true, "typeLevel");
         Map<String, List<Integer>> map = TreeUtil.getMap(list);
         System.out.println("map:" + JsonUtils.objToJsonStr(map));
     }

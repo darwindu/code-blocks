@@ -1,0 +1,14 @@
+# spring
+spring:
+  profiles:
+    active: dev
+
+# log info
+logging:
+  config: classpath:log4j2.xml
+
+# log info
+#logging:
+#  level:
+#    root: info
+#    org.code.blocks: debug

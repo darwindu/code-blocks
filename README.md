@@ -19,12 +19,16 @@
 - 异常类的定义
 - Juint的使用
 - 枚举的定义
-- jackson的json的使用
-- 静态代理
-- 动态代理
-- tree
 - rpc
-- List排序
+- proxy: 静态代理、动态代理
+- JsonUtils: jackson的json的使用
+- TreeUtils: 树构建与解析
+- ListUtils: 排序
+- CommonUtils: 字符串长度校验、BigDecimal转换String长度校验
+- Base64Utils: Jdk Base64 编码解码
+- RsaUtils: RSA 非对称加密解密
+- AesUtils: AES 对称加密解密
+- DataTypeUtils: 字符串转byte[32], byte[32]转字符串
 
 ***
 
@@ -39,5 +43,6 @@
 #### code-blocks-springboot
 > 版本：0.1.1
 
+- aspect: 实现日志拦截
 
 ***

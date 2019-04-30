@@ -1,9 +1,9 @@
-package org.code.blocks.spring.service.impl;
+package org.code.blocks.springboot.service.impl;
 
 import org.code.blocks.common.handler.impl.ContractHandlerImpl;
 import org.code.blocks.common.protocol.response.ResponseData;
-import org.code.blocks.spring.protocol.enums.SpringErrorCode;
-import org.code.blocks.spring.service.HelloWorldSpringService;
+import org.code.blocks.springboot.enums.SpringBootErrorCode;
+import org.code.blocks.springboot.service.HelloWorldSpringBootService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @date 2019/4/29
  **/
 @Service
-public class HelloWorldSpringServiceImpl implements HelloWorldSpringService {
+public class HelloWorldSpringBootServiceImpl implements HelloWorldSpringBootService {
 
     @Override
     public ResponseData<String> say() {
@@ -20,7 +20,7 @@ public class HelloWorldSpringServiceImpl implements HelloWorldSpringService {
             @Override
             public ResponseData<String> executeContract() {
                 String s = "hello world! I'm code blocks";
-                return new ResponseData<>(s, SpringErrorCode.SUCCESS);
+                return new ResponseData<>(s, SpringBootErrorCode.SUCCESS);
             }
         }, methodName);
     }

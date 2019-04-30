@@ -28,7 +28,7 @@ import org.code.blocks.common.exception.BaseException;
  * @author darwindu
  * @date 2019/4/2
  **/
-public class ListUtil {
+public class ListUtils {
 
     /**
      * 对list的元素按照多个属性名称排序, list元素的属性可以是数字（byte、short、int、long、float、double等，支持正数、负数、0）、char、String、java.util.Date

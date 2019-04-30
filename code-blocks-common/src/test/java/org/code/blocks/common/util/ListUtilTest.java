@@ -20,8 +20,8 @@ public class ListUtilTest {
 
         List<Menu> list = this.buildListMenu();
         log.info("list: {}", JsonUtils.objToJsonStr(list));
-        ListUtil.sort(list, true, "id");
-        ListUtil.sort(list, true, "typeLevel");
+        ListUtils.sort(list, true, "id");
+        ListUtils.sort(list, true, "typeLevel");
         log.info("list: {}", JsonUtils.objToJsonStr(list));
         list.forEach(menu -> System.out.println(menu.getId()));
         Assert.assertNotNull(list);

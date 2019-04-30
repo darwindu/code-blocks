@@ -1,0 +1,112 @@
+group 'org.code.blocks'
+version "0.1.0"
+
+List lombok = [
+        "org.projectlombok:lombok:1.16.14"
+]
+
+List apache = [
+        "org.apache.commons:commons-lang3:3.5"
+]
+
+def logger_version = "2.11.1"
+def slf4j_version = "1.7.25"
+List logger = [
+        "org.slf4j:jul-to-slf4j:$slf4j_version",
+        //可注释, 依赖jul-to-slf4j
+        "org.slf4j:slf4j-api:$slf4j_version",
+        "org.apache.logging.log4j:log4j-api:$logger_version",
+        //可注释, 依赖log4j-api
+        "org.apache.logging.log4j:log4j-core:$logger_version",
+        //用于与slf4j保持桥接
+        "org.apache.logging.log4j:log4j-slf4j-impl:$logger_version"
+        //web工程需要包含log4j-web，非web工程不需要
+       // "org.apache.logging.log4j:log4j-web:2.1"
+]
+
+List junit = [
+        "junit:junit:4.12",
+]
+
+allprojects {
+
+    apply plugin: 'maven'
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    // Specify JDK version - may vary in different scenarios
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    // In this section you declare where to find the dependencies of your project
+    repositories {
+        maven {
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile lombok, apache, logger
+        testCompile lombok, apache, logger, junit
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+            }
+            resources {
+                srcDirs = ['src/main/resources']
+            }
+        }
+        test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+            resources {
+                srcDirs = ['src/test/resources']
+            }
+        }
+    }
+
+    jar {
+
+        destinationDir file('dist/app')
+
+        doLast {
+            archiveName project.name + '-' + version + '.jar'
+            exclude '**/*.xml'
+            exclude '**/*.properties'
+
+            copy {
+                from file('src/main/resources/')
+                into 'dist/conf'
+            }
+            copy {
+                from configurations.runtime
+                into 'dist/lib'
+            }
+            copy {
+                from file('.').listFiles().findAll { File f -> (f.name.endsWith('.bat') || f.name.endsWith('.sh') || f.name.endsWith('.env')) }
+                into 'dist'
+            }
+        }
+    }
+
+}
+// 所有子项目的通用配置
+subprojects {
+
+    dependencies {
+        // 通用依赖
+        //compile lombok
+
+        // 测试依赖
+        //testCompile junit
+    }
+}
+

@@ -1,0 +1,19 @@
+group 'com.code.blocks'
+version '0.1.1'
+
+def spring_version = "5.1.2.RELEASE"
+// spring
+List spring = [
+        "org.springframework:spring-core:$spring_version",
+        "org.springframework:spring-beans:$spring_version",
+        "org.springframework:spring-context:$spring_version",
+        "org.springframework:spring-tx:$spring_version",
+        "org.springframework:spring-jdbc:$spring_version",
+        "org.springframework:spring-test:$spring_version"
+]
+
+dependencies {
+    compile project(":code-blocks-common")
+    compile spring
+    testCompile spring
+}

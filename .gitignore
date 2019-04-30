@@ -179,6 +179,7 @@ build.tar.gz
 rsync.ex
 **/build/
 **/dist/
+**/logs/
 bak/
 *docx
 *pdf

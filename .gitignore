@@ -36,7 +36,7 @@ cmake-build-debug/
 ## Plugin-specific files:
 
 # IntelliJ
-/out/**/out/
+**/out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -177,8 +177,8 @@ gradle-app.setting
 build.tar.gz
 .rsync.sh
 rsync.ex
-build/**/build/
-dist/**/dist/
+**/build/
+**/dist/
 bak/
 *docx
 *pdf

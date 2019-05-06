@@ -1,4 +1,4 @@
-package org.code.blocks.common.proxy.statics;
+package org.code.blocks.common.cglib.demo.statics;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ import org.junit.Test;
  * @author darwindu
  * @date 2019/3/26
  **/
-public class StudentsProxyTest {
+public class StudentsProxyPersonTest {
 
     @Test
     public void say() {

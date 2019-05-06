@@ -1,4 +1,4 @@
-package org.code.blocks.common.proxy.dynamic;
+package org.code.blocks.common.cglib.demo.dynamic;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author darwindu
  * @date 2019/3/26
  **/
-public class StudentsProxyTest {
+public class StudentsProxyPersonTest {
 
     @Test
     public void say() {

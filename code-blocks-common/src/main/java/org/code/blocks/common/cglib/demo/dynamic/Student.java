@@ -1,4 +1,4 @@
-package org.code.blocks.common.proxy.dynamic;
+package org.code.blocks.common.cglib.demo.dynamic;
 
 /**
  * @author darwindu

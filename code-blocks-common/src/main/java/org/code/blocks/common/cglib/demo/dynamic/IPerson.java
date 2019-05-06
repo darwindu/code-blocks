@@ -1,7 +1,6 @@
-package org.code.blocks.common.proxy.statics;
+package org.code.blocks.common.cglib.demo.dynamic;
 
 /**
- *
  * @author darwindu
  * @date 2019/3/26
  **/

@@ -1,4 +1,4 @@
-package org.code.blocks.common.proxy.statics;
+package org.code.blocks.common.cglib.demo.statics;
 
 /**
  * @author darwindu

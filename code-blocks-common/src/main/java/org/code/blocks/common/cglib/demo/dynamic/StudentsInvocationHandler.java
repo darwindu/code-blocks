@@ -1,7 +1,9 @@
-package org.code.blocks.common.proxy.dynamic;
+package org.code.blocks.common.cglib.demo.dynamic;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+
+import org.code.blocks.common.cglib.MonitorUtil;
 
 /**
  * @author darwindu

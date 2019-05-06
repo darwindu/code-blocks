@@ -20,7 +20,9 @@
 - Juint的使用
 - 枚举的定义
 - rpc
-- proxy: 静态代理、动态代理
+- cglib.jdk: jdk动态代理，实现接口InvocationHandler
+- cglib.cglib: cglib动态代理，实现即接口MethodInterceptor
+- cglib.demo: 静态代理、动态代理demo
 - JsonUtils: jackson的json的使用
 - TreeUtils: 树构建与解析
 - ListUtils: 排序
@@ -30,13 +32,19 @@
 - AesUtils: AES 对称加密解密
 - DataTypeUtils: 字符串转byte[32], byte[32]转字符串
 
+
+- jdk动态代理与cglib动态代理区别
+> JDK的动态代理机制只能代理接口类，而非接口类无法实现JDK的动态代理，它的原理是通过 Proxy.newProxyInstance 创建的代理对象是在jvm运行时动态生成的一个对象，它并不是我们的InvocationHandler类型，也不是我们定义的那组接口的类型，而是在运行时动态生成的一个对象，并且命名方式都是这样的形式，以$开头，proxy为中，最后一个数字表示对象的标号；
+
+> cglib是针对类来实现代理的，它的原理是对指定的目标类生成一个子类，并覆盖其中方法实现增强，但因为采用的是继承，所以不能对final修饰的类进行代理；
+
 ***
 
 #### code-blocks-spring
 > 版本：0.1.1
 
 - spring框架读取配置文件
-- cglib生成POJO
+- spring cglib生成POJO
 
 ***
 

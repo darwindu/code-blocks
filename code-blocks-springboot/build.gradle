@@ -1,7 +1,7 @@
 group 'com.code.blocks'
 version '0.1.1'
 
-def springboot_version = "1.5.12.RELEASE"
+def springboot_version = "2.1.0.RELEASE"
 List springboot =[
         "org.springframework.boot:spring-boot-starter-web:$springboot_version",
         "org.springframework.boot:spring-boot-autoconfigure:$springboot_version",

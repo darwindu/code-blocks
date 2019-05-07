@@ -13,7 +13,7 @@ List spring = [
 ]
 
 dependencies {
-    compile project(":code-blocks-common")
-    compile spring
-    testCompile spring
+    implementation project(":code-blocks-common")
+    implementation spring
+    testImplementation spring
 }

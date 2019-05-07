@@ -17,8 +17,8 @@ configurations {
 }
 
 dependencies {
-    compile project(":code-blocks-common")
-    compile springboot
-    testCompile springboot
+    implementation project(":code-blocks-common")
+    implementation springboot
+    testImplementation springboot
 }
 

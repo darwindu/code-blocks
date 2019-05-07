@@ -10,5 +10,5 @@ List cglib = [
 ]
 
 dependencies {
-    compile jackson, cglib
+    implementation jackson, cglib
 }

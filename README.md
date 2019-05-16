@@ -55,6 +55,7 @@
 - 实现CommandLineRunner接口：启动后执行一类操作
 - 实现ApplicationContextAware接口：通过获取context取得bean
 - 实现定时任务
-- springboot加载spring的xml文件请使用ClassPathXmlApplicationContext方法，见code-blocks-spring的BaseServiceImpl.java
-
+- springboot加载spring的xml文件请使用以下两种方式
+  - @ImportResource(locations={"classpath:codeBolcksSpringbootApplicationContext.xml"})
+  - ClassPathXmlApplicationContext方法，见code-blocks-spring的BaseServiceImpl.java
 ***

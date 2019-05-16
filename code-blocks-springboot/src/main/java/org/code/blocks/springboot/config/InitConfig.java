@@ -1,13 +1,14 @@
 package org.code.blocks.springboot.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
  * @author darwindu
  * @date 2019/5/8
  **/
-@Component
+@Configuration
 public class InitConfig {
 
     public static PropertitesConfig propertitesConfig;

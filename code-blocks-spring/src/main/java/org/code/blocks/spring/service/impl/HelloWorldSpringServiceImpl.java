@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @date 2019/4/29
  **/
 @Service
-public class HelloWorldSpringServiceImpl implements HelloWorldSpringService {
+public class HelloWorldSpringServiceImpl extends BaseServiceImpl implements HelloWorldSpringService {
 
     @Override
     public ResponseData<String> say() {

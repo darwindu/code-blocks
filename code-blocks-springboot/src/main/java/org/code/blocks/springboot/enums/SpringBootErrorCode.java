@@ -4,9 +4,9 @@ import org.code.blocks.common.protocol.enums.ErrorCode;
 
 /**
  * Define Error Code and the corresponding Error Message.
- *
  * @author darwindu
- */
+ * @date 2019/4/29
+ **/
 public enum SpringBootErrorCode implements ErrorCode {
 
     /**

@@ -12,3 +12,16 @@ logging:
 #  level:
 #    root: info
 #    org.code.blocks: debug
+
+http:
+    request-time-out: 15000
+    max-active: 100
+    validate-after-inactivity: 1000
+    proxy-host:
+    proxy-port: 80
+
+task:
+  refresh:
+    corePoolSize: 10
+    maxPoolSize: 200
+    queueCapacity: 10

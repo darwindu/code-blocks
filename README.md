@@ -52,5 +52,8 @@
 > 版本：0.1.1
 
 - aspect: 实现日志拦截
+- 实现CommandLineRunner接口：启动后执行一类操作
+- 实现ApplicationContextAware接口：通过获取context取得bean
+- 实现定时任务
 
 ***

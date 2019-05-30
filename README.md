@@ -32,6 +32,10 @@
 - AesUtils: AES 对称加密解密
 - DataTypeUtils: 字符串转byte[32], byte[32]转字符串
 
+> 版本：0.1.2
+- PropertyUtils: 读取配置文件
+- JsonUtils: 更新jackson使用的配置，初始化变量
+
 
 ##### jdk动态代理与cglib动态代理区别
 > JDK的动态代理机制只能代理接口类，而非接口类无法实现JDK的动态代理，它的原理是通过 Proxy.newProxyInstance 创建的代理对象是在jvm运行时动态生成的一个对象，它并不是我们的InvocationHandler类型，也不是我们定义的那组接口的类型，而是在运行时动态生成的一个对象，并且命名方式都是这样的形式，以$开头，"proxy"在中间，最后一个数字表示对象的标号；

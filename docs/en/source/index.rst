@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to code-blocks's documentation!
+code-blocks
 =======================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: this is code-blocks
    
    README.md
 

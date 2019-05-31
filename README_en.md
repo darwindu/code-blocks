@@ -8,7 +8,7 @@ code-blocks，Provide various component demos written in code blocks; use multi-
 
 |Integration Method|Document Entry|Current Status|
 |:----|:-----|:-----|
-|Code Demo |[Documents](https://code-blocks.readthedocs.io/zh_CN/latest/)|[![Documentation Status](https://readthedocs.org/projects/code-blocks/badge/?version=latest)](https://code-blocks.readthedocs.io/zh_CN/latest/?badge=latest)|
+|Code Demo |[Documents](https://code-blocks.readthedocs.io/en/latest/)|[![Documentation Status](https://readthedocs.org/projects/code-blocks-en/badge/?version=latest)](https://code-blocks.readthedocs.io/en/latest/)|
 
 
 ### contact us

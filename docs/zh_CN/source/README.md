@@ -3,7 +3,7 @@
 
 ### 项目结构
 
-```
+```sh
 |--code-blocks::根项目, 不写任何代码,仅仅整合所有子项目
              |--code-blocks-common::通用模块
              |--code-blocks-spring::基于spring通用模块

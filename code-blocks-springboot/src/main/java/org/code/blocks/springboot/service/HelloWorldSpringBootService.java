@@ -8,5 +8,5 @@ import org.code.blocks.common.protocol.response.ResponseData;
  **/
 public interface HelloWorldSpringBootService {
 
-    ResponseData<String> say();
+    ResponseData say();
 }

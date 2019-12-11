@@ -2,4 +2,4 @@ rootProject.name = 'code-blocks'
 include 'code-blocks-spring'
 include 'code-blocks-springboot'
 include 'code-blocks-common'
-
+include 'code-blocks-designpattern'

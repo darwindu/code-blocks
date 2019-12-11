@@ -13,6 +13,6 @@ import org.code.blocks.common.handler.ContractHandler;
 public abstract class ContractHandlerImpl<T> implements ContractHandler {
 
 	@Override
-	public abstract T executeContract() throws InterruptedException, ExecutionException, TimeoutException;
+	public abstract T execute() throws InterruptedException, ExecutionException, TimeoutException;
 
 }

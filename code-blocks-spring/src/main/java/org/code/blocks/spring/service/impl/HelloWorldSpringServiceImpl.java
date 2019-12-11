@@ -1,6 +1,7 @@
 package org.code.blocks.spring.service.impl;
 
-import org.code.blocks.common.handler.impl.ContractHandlerImpl;
+import org.code.blocks.common.handler.ContractHandler;
+import org.code.blocks.common.handler.template.ContractHandlerTemplate;
 import org.code.blocks.common.protocol.response.ResponseData;
 import org.code.blocks.spring.protocol.enums.SpringErrorCode;
 import org.code.blocks.spring.service.HelloWorldSpringService;
@@ -16,12 +17,9 @@ public class HelloWorldSpringServiceImpl extends BaseServiceImpl implements Hell
     @Override
     public ResponseData<String> say() {
         String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        return new ResponseData<>().execute(new ContractHandlerImpl<ResponseData<String>>() {
-            @Override
-            public ResponseData<String> executeContract() {
-                String s = "hello world! I'm code blocks";
-                return new ResponseData<>(s, SpringErrorCode.SUCCESS);
-            }
+        return ContractHandlerTemplate.execute((ContractHandler) () -> {
+            String s = "hello world! I'm code blocks";
+            return new ResponseData<>(s, SpringErrorCode.SUCCESS);
         }, methodName);
     }
 }

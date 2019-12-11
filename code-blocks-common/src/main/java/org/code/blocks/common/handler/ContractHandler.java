@@ -10,5 +10,5 @@ import java.util.concurrent.TimeoutException;
  */
 public interface ContractHandler<T> {
 
-	T executeContract() throws InterruptedException, ExecutionException, TimeoutException;
+	T execute() throws InterruptedException, ExecutionException, TimeoutException;
 }

@@ -50,8 +50,8 @@ allprojects {
     }
 
     dependencies {
-        compile lombok, apache, logger
-        testCompile lombok, apache, logger, junit
+        implementation lombok, apache, logger
+        testImplementation lombok, apache, logger, junit
     }
 
     sourceSets {
@@ -103,10 +103,10 @@ subprojects {
 
     dependencies {
         // 通用依赖
-        //compile lombok
+        //implementation lombok
 
         // 测试依赖
-        //testCompile junit
+        //testImplementation junit
     }
 }
 

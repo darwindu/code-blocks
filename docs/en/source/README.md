@@ -36,6 +36,10 @@ Provide various component demos written in code blocks; use multi-project archit
 - PropertyUtils: Read configuration file
 - JsonUtils: Update the configuration used by jackson, initialize variables
 
+> Version：0.1.3
+-ThreadPoolUtils: the use of thread pool
+-JsonUtils: add generic conversion
+
 
 ##### jdk dynamic proxy and cglib dynamic proxy difference
 > JDK's dynamic proxy mechanism can only proxy interface classes. Non-interface classes cannot implement JDK dynamic proxy. The principle is that the proxy object created by Proxy.newProxyInstance is an object dynamically generated during jvm runtime. It is not us. The type of InvocationHandler is not the type of the interface we defined, but an object dynamically generated at runtime, and the naming method is such that it starts with $, "proxy" is in the middle, and the last number represents the object. Label

@@ -23,7 +23,7 @@ public class TreeUtilTest {
         ListUtils.sort(list, true, "id");
         ListUtils.sort(list, true, "typeLevel");
         Map<String, List<Integer>> map = TreeUtil.getMap(list);
-        System.out.println("map:" + JsonUtils.objToJsonStr(map));
+        System.out.println("map:" + JsonUtils.objToJson(map));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class TreeUtilTest {
 
         List<Menu> list = this.buildListMenu();
         List<TreeNode> listTreeNode = TreeUtil.buildTrees(list, "0");
-        log.info("listTreeNode: {}", JsonUtils.objToJsonStr(listTreeNode));
+        log.info("listTreeNode: {}", JsonUtils.objToJson(listTreeNode));
         Assert.assertNotNull(listTreeNode);
     }
 
@@ -40,7 +40,7 @@ public class TreeUtilTest {
 
         List<Menu> list = this.buildListMenu();
         List<TreeNode> listTreeNode = TreeUtil.buildTrees(list);
-        log.info("listTreeNode: {}", JsonUtils.objToJsonStr(listTreeNode));
+        log.info("listTreeNode: {}", JsonUtils.objToJson(listTreeNode));
         Assert.assertNotNull(listTreeNode);
     }
 
@@ -49,7 +49,7 @@ public class TreeUtilTest {
 
         List<Menu> list = this.buildListMenu();
         TreeNode treeNode = TreeUtil.buildTree(list);
-        log.info("treeNode: {}", JsonUtils.objToJsonStr(treeNode));
+        log.info("treeNode: {}", JsonUtils.objToJson(treeNode));
         Assert.assertNotNull(treeNode);
     }
 
@@ -58,7 +58,7 @@ public class TreeUtilTest {
 
         List<Menu> list = this.buildListMenu();
         TreeNode treeNode = TreeUtil.buildTreeByRootId(list, "0");
-        log.info("treeNode: {}", JsonUtils.objToJsonStr(treeNode));
+        log.info("treeNode: {}", JsonUtils.objToJson(treeNode));
         Assert.assertNotNull(treeNode);
     }
 

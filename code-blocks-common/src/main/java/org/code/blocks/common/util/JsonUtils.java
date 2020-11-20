@@ -5,13 +5,14 @@ import java.io.IOException;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.code.blocks.common.exception.BaseException;
+import org.code.blocks.common.exception.ComponentException;
 
 /**
  * data type cast by jackson method.
@@ -48,18 +49,35 @@ public class JsonUtils {
     /**
      * Json String to Object.
      *
-     * @param clazz Class
      * @param jsonStr Json String
+     * @param clazz Class
      * @return Object
      */
-    public static <T> T jsonStrToObj(Class<T> clazz, String jsonStr) {
+    public static <T> T jsonToObj(String jsonStr, Class<T> clazz) {
 
         try {
             return OBJECT_READER.readValue(
                 OBJECT_MAPPER.getFactory().createParser(jsonStr),
                 clazz);
         } catch (IOException e) {
-            throw new BaseException(e);
+            throw new ComponentException(e);
+        }
+    }
+
+    /**
+     * Json String to Object.
+     *
+     * method:JsonUtils.jsonToObj(wesignResponse.getResult(), new TypeReference<CreateContractReponse<CreateContractResponseData>>(){}); .
+     * @param jsonStr
+     * @param valueTypeRef
+     * @param <T>
+     * @return
+     */
+    public static <T> T jsonToObj(String jsonStr, TypeReference<T> valueTypeRef) {
+        try {
+            return OBJECT_READER.readValue(OBJECT_MAPPER.getFactory().createParser(jsonStr), valueTypeRef);
+        } catch (IOException e) {
+            throw new ComponentException(e);
         }
     }
 
@@ -69,12 +87,12 @@ public class JsonUtils {
      * @param obj Object
      * @return String
      */
-    public static String objToJsonStr(Object obj) {
+    public static String objToJson(Object obj) {
 
         try {
             return OBJECT_WRITER.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
-            throw new BaseException(e);
+            throw new ComponentException(e);
         }
     }
 }

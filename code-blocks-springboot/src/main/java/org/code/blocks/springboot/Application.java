@@ -18,6 +18,6 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class);
-		log.info("#### Start finished");
+		log.info("#### start finished");
 	}
 }

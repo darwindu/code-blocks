@@ -21,7 +21,7 @@ public class HelloWorldServiceTest {
     public void say() {
 
         ResponseData<String> responseData =  helloWorldService.say();
-        log.info("responseData: {}", JsonUtils.objToJsonStr(responseData));
+        log.info("responseData: {}", JsonUtils.objToJson(responseData));
         Assert.assertEquals(CommonErrorCode.SUCCESS.getCode(), responseData.getErrorCode().intValue());
     }
 }

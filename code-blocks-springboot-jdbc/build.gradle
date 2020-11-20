@@ -1,0 +1,5 @@
+group 'org.code.blocks.springboot.jdbc'
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

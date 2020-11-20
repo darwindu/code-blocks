@@ -3,3 +3,5 @@ include 'code-blocks-spring'
 include 'code-blocks-springboot'
 include 'code-blocks-common'
 include 'code-blocks-designpattern'
+include 'code-blocks-springboot-jdbc'
+

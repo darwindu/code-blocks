@@ -14,7 +14,7 @@
 ### 新特性
 
 #### code-blocks-common
-> 版本：0.1.1
+> 版本：0.1.2
 
 - 异常类的定义
 - Juint的使用
@@ -35,6 +35,11 @@
 > 版本：0.1.2
 - PropertyUtils: 读取配置文件
 - JsonUtils: 更新jackson使用的配置，初始化变量
+
+> 版本：0.1.3
+- ThreadPoolUtils: 线程池的使用
+- JsonUtils：增加泛型转换
+
 
 
 ##### jdk动态代理与cglib动态代理区别

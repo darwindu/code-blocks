@@ -26,7 +26,7 @@ public class ContractHandlerTemplate {
             log.error(
                 "[{}] RunException, paramObjects:{}, errorcode:{}",
                 methodName,
-                JsonUtils.objToJsonStr(paramObjects),
+                JsonUtils.objToJson(paramObjects),
                 CommonErrorCode.CONTRACT_EXECUTE_EXCEPTION.getCode(),
                 e
             );
@@ -35,7 +35,7 @@ public class ContractHandlerTemplate {
             log.error(
                 "[{}] Timeout, paramObjects:{}, errorcode:{}",
                 methodName,
-                JsonUtils.objToJsonStr(paramObjects),
+                JsonUtils.objToJson(paramObjects),
                 CommonErrorCode.CONTRACT_EXECUTE_TIMEOUT.getCode(),
                 e
             );
@@ -44,7 +44,7 @@ public class ContractHandlerTemplate {
             log.error(
                 "[{}] RangesException, paramObjects:{}, errorcode:{}",
                 methodName,
-                JsonUtils.objToJsonStr(paramObjects),
+                JsonUtils.objToJson(paramObjects),
                 e.getErrorCode(),
                 e
             );
@@ -53,7 +53,7 @@ public class ContractHandlerTemplate {
             log.error(
                 "[{}] BaseException, paramObjects:{}, errorcode:{}",
                 methodName,
-                JsonUtils.objToJsonStr(paramObjects),
+                JsonUtils.objToJson(paramObjects),
                 e.getErrorCode(),
                 e
             );
@@ -62,7 +62,7 @@ public class ContractHandlerTemplate {
             log.error(
                 "[{}] Exception, paramObjects:{}, errorcode:{}",
                 methodName,
-                JsonUtils.objToJsonStr(paramObjects),
+                JsonUtils.objToJson(paramObjects),
                 CommonErrorCode.UNKNOW_ERROR.getCode(),
                 e
             );

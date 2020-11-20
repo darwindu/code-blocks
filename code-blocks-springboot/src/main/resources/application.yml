@@ -8,6 +8,13 @@ spring:
     username: root
     password: root
 
+########################################## mybatis Info #####################################
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration.map-underscore-to-camel-case: true
+  # 打印mybatis日志，生产环境请注释该配置
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 # log info
 logging:
   config: classpath:log4j2.xml
@@ -38,5 +45,7 @@ common:
     maxPoolSize: 500
     queueCapacity: 100
     keepAliveSeconds: 60
+
+
 
 

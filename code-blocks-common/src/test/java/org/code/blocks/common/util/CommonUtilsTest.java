@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.code.blocks.common.exception.ValidateException;
-import org.code.blocks.common.protocol.enums.CommonErrorCode;
 import org.junit.Assert;
 import org.junit.Test;
 

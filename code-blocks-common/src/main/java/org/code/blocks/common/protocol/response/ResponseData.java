@@ -2,23 +2,24 @@ package org.code.blocks.common.protocol.response;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.code.blocks.common.protocol.enums.CommonErrorCode;
-import org.code.blocks.common.protocol.enums.ErrorCode;
+import org.code.blocks.common.errorcode.ErrorCode;
+import org.code.blocks.common.errorcode.IErrorCode;
 
 /**
- * The internal base response result class.
+ * The internal base response data class.
+ * ResponseData为返回结果集，code=0表示返回成功，否则失败
  *
  * @param <T> the generic type
  * @author darwindu
- * @date 2019/3/4
+ * @date 2019/4/11
  */
 @Data
 @Slf4j
 public class ResponseData<T> {
 
-    private T result;
-    private Integer errorCode = CommonErrorCode.SUCCESS.getCode();
-    private String errorMessage = CommonErrorCode.SUCCESS.getCodeDesc();
+    private T data;
+    private Integer code = ErrorCode.SUCCESS.getCode();
+    private String msg = ErrorCode.SUCCESS.getMsg();
 
     /**
      * Instantiates a new response data.
@@ -29,25 +30,45 @@ public class ResponseData<T> {
     /**
      * Instantiates a new response data.
      *
-     * @param result the result
+     * @param data the data
      * @param errorCode the return code
      */
-    public ResponseData(T result, ErrorCode errorCode) {
-        this.result = result;
-        this.errorCode = errorCode.getCode();
-        this.errorMessage = errorCode.getCodeDesc();
+    public ResponseData(T data, IErrorCode errorCode) {
+        this.data = data;
+        this.code = errorCode.getCode();
+        this.msg = errorCode.getMsg();
     }
 
     /**
      * Instantiates a new response data.
      *
-     * @param result the result
-     * @param errorCode the return code
-     * @param errorMessage the return message
+     * @param data the data
+     * @param code the return code
+     * @param msg the return message
      */
-    public ResponseData(T result, Integer errorCode, String errorMessage) {
-        this.result = result;
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
+    public ResponseData(T data, Integer code, String msg) {
+        this.data = data;
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public static <T> ResponseData<T> fail(Integer code, String msg) {
+        return new ResponseData(null, code, msg);
+    }
+
+    public static <T> ResponseData<T> fail(IErrorCode errorCode) {
+        return new ResponseData(null, errorCode);
+    }
+
+    public static <T> ResponseData<T> success(T data, Integer code, String msg) {
+        return new ResponseData(data, code, msg);
+    }
+
+    public static <T> ResponseData<T> success(T data, IErrorCode errorCode) {
+        return new ResponseData(data, errorCode);
+    }
+
+    public static <T> ResponseData<T> success(T data) {
+        return new ResponseData(data, ErrorCode.SUCCESS);
     }
 }

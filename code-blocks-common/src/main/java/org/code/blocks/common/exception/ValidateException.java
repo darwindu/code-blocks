@@ -1,6 +1,7 @@
 package org.code.blocks.common.exception;
 
-import org.code.blocks.common.protocol.enums.CommonErrorCode;
+import org.code.blocks.common.errorcode.ErrorCode;
+import org.code.blocks.common.errorcode.IErrorCode;
 
 /**
  * @author darwindu
@@ -12,28 +13,27 @@ public class ValidateException extends BaseException {
         super(cause);
     }
 
-    public ValidateException(String errorMessage, Throwable cause) {
-        super(errorMessage, cause);
+    public ValidateException(String msg, Throwable cause) {
+        super(msg, cause);
     }
 
-    public ValidateException(String errorMessage) {
-        super(errorMessage);
+    public ValidateException(String msg) {
+        super(msg);
     }
 
-    public ValidateException(Integer errorCode, String errorMessage, Throwable cause) {
-        super(errorCode, errorMessage, cause);
+    public ValidateException(Integer code, String msg, Throwable cause) {
+        super(code, msg, cause);
     }
 
-    public ValidateException(CommonErrorCode commonErrorCode,
-        Throwable cause) {
-        super(commonErrorCode, cause);
+    public ValidateException(Integer code, String msg) {
+        super(code, msg);
     }
 
-    public ValidateException(Integer errorCode, String errorMessage) {
-        super(errorCode, errorMessage);
+    public ValidateException(IErrorCode code) {
+        super(code);
     }
 
-    public ValidateException(CommonErrorCode commonErrorCode) {
-        super(commonErrorCode);
+    public ValidateException(IErrorCode code, Object... paramObjects) {
+        super(code, paramObjects);
     }
 }

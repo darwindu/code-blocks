@@ -1,6 +1,6 @@
 package org.code.blocks.common.exception;
 
-import org.code.blocks.common.protocol.enums.ErrorCode;
+import org.code.blocks.common.errorcode.IErrorCode;
 
 /**
  * @author darwindu
@@ -12,28 +12,27 @@ public class ComponentException extends BaseException {
         super(cause);
     }
 
-    public ComponentException(String errorMessage, Throwable cause) {
-        super(errorMessage, cause);
+    public ComponentException(String msg, Throwable cause) {
+        super(msg, cause);
     }
 
-    public ComponentException(String errorMessage) {
-        super(errorMessage);
+    public ComponentException(String msg) {
+        super(msg);
     }
 
-    public ComponentException(Integer errorCode, String errorMessage, Throwable cause) {
-        super(errorCode, errorMessage, cause);
+    public ComponentException(Integer code, String msg, Throwable cause) {
+        super(code, msg, cause);
     }
 
-    public ComponentException(ErrorCode errorCode,
-        Throwable cause) {
-        super(errorCode, cause);
+    public ComponentException(Integer code, String msg) {
+        super(code, msg);
     }
 
-    public ComponentException(Integer errorCode, String errorMessage) {
-        super(errorCode, errorMessage);
+    public ComponentException(IErrorCode code) {
+        super(code);
     }
 
-    public ComponentException(ErrorCode errorCode) {
-        super(errorCode);
+    public ComponentException(IErrorCode code, Object... paramObjects) {
+        super(code, paramObjects);
     }
 }

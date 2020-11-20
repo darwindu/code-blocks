@@ -1,91 +1,97 @@
 package org.code.blocks.common.exception;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 import org.code.blocks.common.constant.CommonConstant;
-import org.code.blocks.common.protocol.enums.ErrorCode;
+import org.code.blocks.common.errorcode.IErrorCode;
+import org.code.blocks.common.util.JsonUtils;
 
 /**
- * 异常基类
+ * 异常类
  * @author darwindu
  * @date 2019/3/4
  **/
+@Slf4j
 public class BaseException extends RuntimeException {
 
-    private Integer errorCode;
-    private String errorMessage;
+    private Integer code;
+    private String msg;
 
     public BaseException(Throwable cause) {
         super(cause);
     }
 
-    public BaseException(String errorMessage, Throwable cause) {
-        super(errorMessage, cause);
+    public BaseException(String msg, Throwable cause) {
+        super(msg, cause);
     }
 
-    public BaseException(String errorMessage) {
-        super(errorMessage);
+    public BaseException(String msg) {
+        super(msg);
     }
+
 
     /**
      * constructor.
      * @param cause exception object
-     * @param errorCode exception error code.
-     * @param errorMessage exception error messave.
+     * @param code exception error code.
+     * @param msg exception error messave.
      */
-    public BaseException(Integer errorCode, String errorMessage, Throwable cause) {
-        super(getMsg(errorCode, errorMessage), cause);
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
+    public BaseException(Integer code, String msg, Throwable cause) {
+        super(getMsg(code, msg), cause);
+        this.code = code;
+        this.msg = msg;
+    }
+
+
+    /**
+     * constructor.
+     * @param code exception error code
+     * @param msg exception error messave
+     */
+    public BaseException(Integer code, String msg) {
+        super(getMsg(code, msg));
+        this.code = code;
+        this.msg = msg;
     }
 
     /**
      * constructor.
-     * @param errorCode exception enum errorcode
-     * @param cause exception object
+     * @param code exception enum errorcode
      */
-    public BaseException(ErrorCode errorCode, Throwable cause) {
-        super(getMsg(errorCode), cause);
-        this.errorCode = errorCode.getCode();
-        this.errorMessage = errorCode.getCodeDesc();
+    public BaseException(IErrorCode code) {
+        super(getMsg(code));
+        this.code = code.getCode();
+        this.msg = code.getMsg();
     }
 
-    /**
-     * constructor.
-     * @param errorCode exception error code
-     * @param errorMessage exception error messave
-     */
-    public BaseException(Integer errorCode, String errorMessage) {
-        super(getMsg(errorCode, errorMessage));
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
-    }
-
-    /**
-     * constructor.
-     * @param errorCode exception enum errorcode
-     */
-    public BaseException(ErrorCode errorCode) {
-        super(getMsg(errorCode));
-        this.errorCode = errorCode.getCode();
-        this.errorMessage = errorCode.getCodeDesc();
+    public BaseException(IErrorCode code, Object... paramObjects) {
+        super(getMsg(code, paramObjects));
+        this.code = code.getCode();
+        this.msg = code.getMsg();
     }
 
 
-    public Integer getErrorCode() {
-        return errorCode;
+    public Integer getCode() {
+        return code;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMsg() {
+        return msg;
     }
 
-    private static String getMsg(ErrorCode errorCode) {
-        return getMsg(errorCode.getCode(), errorCode.getCodeDesc());
+    private static String getMsg(IErrorCode code) {
+        return getMsg(code.getCode(), code.getMsg());
+    }
+
+    private static String getMsg(IErrorCode code, Object... paramObjects) {
+        log.info("code:{} msg:{} paramObjects:{}", code.getCode(), code.getMsg(), JsonUtils.objToJson(paramObjects));
+        return getMsg(code.getCode(), code.getMsg());
     }
 
     private static String getMsg(Integer errorCode, String errorMessage) {
 
-        return new StringBuffer(errorCode == null ? CommonConstant.EMPTY : errorCode.toString())
+        return new StringBuffer(errorCode == null ? Strings.EMPTY : errorCode.toString())
             .append(CommonConstant.SYMBOL_VERTICAL)
-            .append(errorMessage == null ? CommonConstant.EMPTY : errorMessage).toString();
+            .append(errorMessage == null ? Strings.EMPTY : errorMessage).toString();
     }
 }

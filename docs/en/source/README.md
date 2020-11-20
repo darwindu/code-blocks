@@ -58,7 +58,6 @@ Provide various component demos written in code blocks; use multi-project archit
 
 #### code-blocks-springboot
 > Version: 0.1.1
-
 - aspect: implements log interception
 - Implement the CommandLineRunner interface: perform a type of operation after startup
 - Implement the ApplicationContextAware interface: get the bean by getting the context
@@ -66,3 +65,9 @@ Provide various component demos written in code blocks; use multi-project archit
 Springboot load spring xml file please use the following two ways
   - @ImportResource(locations={"classpath:codeBolcksSpringbootApplicationContext.xml"})
   - ClassPathXmlApplicationContext method, see code-blocks-spring's BaseServiceImpl.java
+
+> Version：0.1.3
+-HttpAspect: optimize aop log
+-CommonExceptionHandler: add aop exception handling
+-@Valid @Validated: Increase the use of validation
+-mybatis: add mybatis database field to hump

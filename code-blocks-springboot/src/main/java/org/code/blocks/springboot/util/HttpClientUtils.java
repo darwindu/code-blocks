@@ -229,7 +229,7 @@ public class HttpClientUtils {
      */
     public static String doPost(String url, Object params, boolean isSSL) {
 
-        log.debug("doPost start. url:{},params:{}", url, JsonUtils.objToJsonStr(params));
+        log.debug("doPost start. url:{},params:{}", url, JsonUtils.objToJson(params));
         CloseableHttpClient httpClient;
         if(isSSL) {
             httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConn()).setConnectionManager(connMgr).setDefaultRequestConfig(requestConfig).build();
@@ -246,7 +246,7 @@ public class HttpClientUtils {
             // 建立一个NameValuePair数组，用于存储欲传送的参数
             httpPost.addHeader("Content-type", "application/json; charset=utf-8");
             httpPost.setHeader("Accept", "application/json");
-            httpPost.setEntity(new StringEntity(JsonUtils.objToJsonStr(params), Charset.forName("UTF-8")));//发送的参数
+            httpPost.setEntity(new StringEntity(JsonUtils.objToJson(params), Charset.forName("UTF-8")));//发送的参数
 
             response = httpClient.execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();

@@ -1,7 +1,5 @@
 package org.code.blocks.spring.protocol.enums;
 
-import org.code.blocks.common.protocol.enums.ErrorCode;
-
 /**
  * Define Error Code and the corresponding Error Message.
  *

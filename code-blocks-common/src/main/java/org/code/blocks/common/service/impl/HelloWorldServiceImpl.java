@@ -1,7 +1,7 @@
 package org.code.blocks.common.service.impl;
 
+import org.code.blocks.common.errorcode.ErrorCode;
 import org.code.blocks.common.handler.template.ContractHandlerTemplate;
-import org.code.blocks.common.protocol.enums.CommonErrorCode;
 import org.code.blocks.common.protocol.response.ResponseData;
 import org.code.blocks.common.service.HelloWorldService;
 
@@ -18,7 +18,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
         return ContractHandlerTemplate.execute(() -> {
 
             String s = "hello world! I'm code blocks";
-            return new ResponseData<>(s, CommonErrorCode.SUCCESS);
+            return new ResponseData<>(s, ErrorCode.SUCCESS);
         }, methodName);
     }
 }

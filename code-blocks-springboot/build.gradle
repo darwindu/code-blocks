@@ -18,6 +18,11 @@ List spring =[
         "org.springframework:spring-context-support:$spring_version"
 ]
 
+/*hibertnate 入参校验支持包*/
+List validate = [
+        "org.hibernate:hibernate-validator:6.1.5.Final"
+]
+
 def mybatis = [
         "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3"
 ]
@@ -37,7 +42,7 @@ configurations {
 
 dependencies {
     implementation project(":code-blocks-common")
-    implementation spring, springboot, httpclient, mybatis, mysql
-    testImplementation spring, springboot, httpclient, mybatis, mysql
+    implementation spring, springboot, httpclient, mybatis, mysql,validate
+    testImplementation spring, springboot, httpclient, mybatis, mysql,validate
 }
 

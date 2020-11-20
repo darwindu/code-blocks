@@ -6,9 +6,9 @@ import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.code.blocks.common.constant.CommonConstant;
+import org.code.blocks.common.errorcode.ErrorCode;
 import org.code.blocks.common.exception.BaseException;
 import org.code.blocks.common.exception.ValidateException;
-import org.code.blocks.common.protocol.enums.CommonErrorCode;
 
 /**
  * 公用方法类
@@ -38,8 +38,8 @@ public class CommonUtils {
         if (StringUtils.isEmpty(stringTrim(fieldValue))) {
 
             StringBuffer sb = new StringBuffer(fieldName);
-            sb.append(CommonConstant.SYMBOL_VERTICAL).append(CommonErrorCode.FIELD_NOT_EMPTY.getCodeDesc());
-            throw new ValidateException(CommonErrorCode.FIELD_NOT_EMPTY.getCode(), sb.toString());
+            sb.append(CommonConstant.SYMBOL_VERTICAL).append(ErrorCode.FIELD_NOT_EMPTY.getCode());
+            throw new ValidateException(ErrorCode.FIELD_NOT_EMPTY.getCode(), sb.toString());
         }
     }
 
@@ -76,8 +76,8 @@ public class CommonUtils {
                     maxBytesLength,
                     actualLength);
                 StringBuffer sb = new StringBuffer(fieldName);
-                sb.append(CommonConstant.SYMBOL_SEMICOLON).append(fieldValue).append(CommonConstant.SYMBOL_VERTICAL).append(CommonErrorCode.OUT_OF_RANGES_ERROR.getCodeDesc());
-                throw new ValidateException(CommonErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
+                sb.append(CommonConstant.SYMBOL_SEMICOLON).append(fieldValue).append(CommonConstant.SYMBOL_VERTICAL).append(ErrorCode.OUT_OF_RANGES_ERROR.getCode());
+                throw new ValidateException(ErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
             }
         } catch (UnsupportedEncodingException e) {
             throw new BaseException(e);
@@ -108,21 +108,21 @@ public class CommonUtils {
 
         String[] ss = fieldValue.replace(CommonConstant.SYMBOL_POINT, CommonConstant.SYMBOL_HORIZONTAL).split(CommonConstant.SYMBOL_HORIZONTAL);
         StringBuffer sb = new StringBuffer(fieldName);
-        sb.append(CommonConstant.SYMBOL_SEMICOLON).append(fieldValue).append(CommonConstant.SYMBOL_VERTICAL).append(CommonErrorCode.OUT_OF_RANGES_ERROR.getCodeDesc());
+        sb.append(CommonConstant.SYMBOL_SEMICOLON).append(fieldValue).append(CommonConstant.SYMBOL_VERTICAL).append(ErrorCode.OUT_OF_RANGES_ERROR.getCode());
         int actualLength0 = ss[0].length();
         if(ss.length > 1) {
             int actualLength1 = ss[1].length();
             if(actualLength1 > decimal) {
-                throw new ValidateException(CommonErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
+                throw new ValidateException(ErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
             }
             int length = actualLength0 + actualLength1;
             if(length > maxLength) {
-                throw new ValidateException(CommonErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
+                throw new ValidateException(ErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
             }
             return;
         }
         if(actualLength0 > maxLength) {
-            throw new ValidateException(CommonErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
+            throw new ValidateException(ErrorCode.OUT_OF_RANGES_ERROR.getCode(), sb.toString());
         }
     }
 

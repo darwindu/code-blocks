@@ -15,7 +15,6 @@ public class RefreshTask {
     /**
      * 每3秒执行一次
      */
-    //@Scheduled(cron = "0/3 * * * * *")
     @Scheduled(cron = "${task.cron.test}")
     public void execute() {
 

@@ -1,0 +1,7 @@
+# app service port
+server:
+  port: 8085
+
+spring:
+  application:
+    name: eureka-client-user-service

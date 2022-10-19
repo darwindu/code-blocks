@@ -4,4 +4,8 @@ include 'code-blocks-springboot'
 include 'code-blocks-common'
 include 'code-blocks-designpattern'
 include 'code-blocks-springboot-jdbc'
+include 'code-blocks-springboot-security'
+include 'code-blocks-springcloud-eureka'
+include 'code-blocks-springcloud-eureka-article'
+include 'code-blocks-springcloud-eureka-discovery'
 

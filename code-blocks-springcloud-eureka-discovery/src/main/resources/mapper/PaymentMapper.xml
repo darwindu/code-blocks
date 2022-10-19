@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.code.blocks.springcloud.eureka.discovery.dao.PaymentDao">
+
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO payment(serial) values(#{serial})
+    </insert>
+
+    <select id="getPaymentById" parameterType="Long" resultType="org.code.blocks.springcloud.eureka.discovery.entity.Payment" >
+        SELECT id, serial FROM payment WHERE id = #{id}
+    </select>
+</mapper>

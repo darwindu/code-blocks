@@ -1,5 +1,5 @@
 group 'org.code.blocks'
-version "0.1.3"
+version "0.1.4"
 
 def gradle_version = "4"
 if (gradle.gradleVersion.startsWith("6")
@@ -20,6 +20,7 @@ List lombok = [
 List apache = [
         "org.apache.commons:commons-lang3:3.5"
 ]
+
 
 def logger_version = "2.11.1"
 def slf4j_version = "1.7.25"

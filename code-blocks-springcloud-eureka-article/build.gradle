@@ -1,0 +1,30 @@
+group 'org.code.blocks.springcloud-eureka-article'
+version '0.1.1'
+
+List springboot = [
+        "org.springframework.boot:spring-boot-starter:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-web:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-parent:$springboot_version",
+        "org.springframework.boot:spring-boot-autoconfigure:$springboot_version",
+        "org.springframework.boot:spring-boot-configuration-processor:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-log4j2:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-aop:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-test:$springboot_version"
+]
+
+/*hibertnate 入参校验支持包*/
+List validate = [
+        "org.hibernate:hibernate-validator:$hibernate_validator_version"
+]
+
+
+// 解决日志冲突，踢出logback: spring-boot-starter-logging
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    implementation project(":code-blocks-common")
+    implementation springboot, validate
+    testImplementation springboot, validate
+}

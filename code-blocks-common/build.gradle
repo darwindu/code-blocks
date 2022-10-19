@@ -1,11 +1,11 @@
 group 'org.code.blocks.common'
 
 List jackson = [
-        "com.fasterxml.jackson.core:jackson-databind:2.8.8.1"
+        "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
 ]
 
 List cglib = [
-        "cglib:cglib:3.2.10"
+        "cglib:cglib:$cglib_version"
 ]
 
 dependencies {

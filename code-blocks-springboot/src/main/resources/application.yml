@@ -47,5 +47,11 @@ common:
     keepAliveSeconds: 60
 
 
+code:
+  blocks:
+    cros:
+##      config: *@/**
+      config: https://a.com,https://b.com@/**
+
 
 

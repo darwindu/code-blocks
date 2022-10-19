@@ -1,0 +1,6 @@
+# app service port
+server:
+  port: 8761
+  # springboot版本升级配置，等于server.context-path
+  servlet:
+    context-path: /eurekaServer

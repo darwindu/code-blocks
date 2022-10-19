@@ -13,6 +13,11 @@
 
 ### 新特性
 
+#### code-blocks
+> 版本：0.1.4
+
+- 增加gradle.properties文件，处理通用版本
+
 #### code-blocks-common
 > 版本：0.1.2
 
@@ -73,6 +78,15 @@
 - CommonExceptionHandler：增加aop异常处理
 - @Valid @Validated: 增加校验使用方式
 - mybatis：增加mybatis数据库字段转驼峰
+
+> 版本：0.1.4
+- HttpFilter：请求拦截过滤器，处理网关模式下跨域
+- CrosConfig：通用跨域处理
+
+#### code-blocks-springboot-jdbc
+> 版本：0.1.1
+
+- 新增Mybatis的增删改查
 
 #### code-blocks-designpattern
 > 版本：0.1.1
@@ -156,3 +170,23 @@
     </td>
   </tr>
 </table>
+
+#### code-blocks-springboot-security
+> 版本：0.1.1
+
+- 新增
+
+#### code-blocks-springboot-eureka
+> 版本：0.1.1
+
+- 新增
+
+#### code-blocks-springboot-eureka-article
+> 版本：0.1.1
+
+- 新增
+
+#### code-blocks-springboot-eureka-discovery
+> 版本：0.1.1
+
+- 新增

@@ -1,0 +1,36 @@
+group 'org.code.blocks.springcloud.eureka'
+version '0.1.1'
+
+
+List springboot = [
+        "org.springframework.boot:spring-boot-starter:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-web:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-parent:$springboot_version",
+        "org.springframework.boot:spring-boot-autoconfigure:$springboot_version",
+        "org.springframework.boot:spring-boot-configuration-processor:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-log4j2:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-aop:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-test:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-security:$springboot_version"
+]
+
+
+List springcloud = [
+        "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:$springcloud_version",
+        "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR9"
+]
+
+List gson = [
+        "com.google.code.gson:gson:$gson_version"
+]
+
+// 解决日志冲突，踢出logback: spring-boot-starter-logging
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    //implementation project(":code-blocks-springboot")
+    implementation springboot, gson, springcloud
+    testImplementation springboot, gson, springcloud
+}

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @Slf4j
 @RequestMapping(value = "hello")
+//@CrossOrigin(allowCredentials = "true", allowedHeaders = "*", originPatterns = "*") // 跨域注解使用方式
 public class HelloWorldController {
 
 

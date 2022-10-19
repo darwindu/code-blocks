@@ -1,5 +1,44 @@
 group 'org.code.blocks.springboot.jdbc'
+version "0.1.1"
+
+List springboot = [
+        "org.springframework.boot:spring-boot-starter:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-web:$springboot_version",
+        "org.springframework.boot:spring-boot-autoconfigure:$springboot_version",
+        "org.springframework.boot:spring-boot-configuration-processor:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-log4j2:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-aop:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-test:$springboot_version"
+]
+
+List spring =[
+        "org.springframework:spring-tx:$spring_version",
+        "org.springframework:spring-jdbc:$spring_version",
+        "org.springframework:spring-context-support:$spring_version"
+]
+
+/*hibertnate 入参校验支持包*/
+List validate = [
+        "org.hibernate:hibernate-validator:$hibernate_validator_version"
+]
+
+def mybatis = [
+        "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatis_springboot_version"
+]
+
+List mysql = [
+        "mysql:mysql-connector-java:$mysql_version"
+]
+
+
+// 解决日志冲突，踢出logback: spring-boot-starter-logging
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+}
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation project(":code-blocks-common")
+    implementation spring, springboot, mybatis, mysql,validate
+    testImplementation spring, springboot, mybatis, mysql,validate
 }
+

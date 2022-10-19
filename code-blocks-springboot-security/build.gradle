@@ -1,0 +1,35 @@
+group 'org.code.blocks.springboot.security'
+version '0.1.1'
+
+
+List springboot = [
+        "org.springframework.boot:spring-boot-starter:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-web:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-parent:$springboot_version",
+        "org.springframework.boot:spring-boot-autoconfigure:$springboot_version",
+        "org.springframework.boot:spring-boot-configuration-processor:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-log4j2:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-aop:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-test:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-security:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-jdbc:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-thymeleaf:$springboot_version"
+]
+
+List mybatis = [
+        "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatis_springboot_version"
+]
+
+List mysql = [
+        "mysql:mysql-connector-java:$mysql_version"
+]
+
+// 解决日志冲突，踢出logback: spring-boot-starter-logging
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    implementation springboot, mybatis, mysql
+    testImplementation springboot, mybatis, mysql
+}

@@ -1,0 +1,7 @@
+
+CREATE TABLE girl (
+  id int NOT NULL AUTO_INCREMENT COMMENT '主键',
+  cup_size varchar(8) DEFAULT NULL COMMENT '胸围',
+  age int DEFAULT NULL COMMENT '年龄',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

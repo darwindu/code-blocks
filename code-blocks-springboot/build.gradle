@@ -1,6 +1,6 @@
 group 'org.code.blocks.springboot'
+version "0.1.4"
 
-def springboot_version = "2.3.1.RELEASE"
 List springboot = [
         "org.springframework.boot:spring-boot-starter:$springboot_version",
         "org.springframework.boot:spring-boot-starter-web:$springboot_version",
@@ -11,7 +11,6 @@ List springboot = [
         "org.springframework.boot:spring-boot-starter-test:$springboot_version"
 ]
 
-def spring_version="5.2.6.RELEASE"
 List spring =[
         "org.springframework:spring-tx:$spring_version",
         "org.springframework:spring-jdbc:$spring_version",
@@ -20,19 +19,19 @@ List spring =[
 
 /*hibertnate 入参校验支持包*/
 List validate = [
-        "org.hibernate:hibernate-validator:6.1.5.Final"
+        "org.hibernate:hibernate-validator:$hibernate_validator_version"
 ]
 
 def mybatis = [
-        "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3"
+        "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatis_springboot_version"
 ]
 
 List mysql = [
-        'mysql:mysql-connector-java:8.0.20'
+        "mysql:mysql-connector-java:$mysql_version"
 ]
 
 def httpclient = [
-        "org.apache.httpcomponents:httpclient:4.5.6"
+        "org.apache.httpcomponents:httpclient:$httpclient_version"
 ]
 
 // 解决日志冲突，踢出logback: spring-boot-starter-logging

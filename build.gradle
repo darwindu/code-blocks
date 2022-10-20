@@ -7,10 +7,16 @@ if (gradle.gradleVersion.startsWith("6") ||
     gradle.gradleVersion.startsWith("5") || 
     gradle.gradleVersion.startsWith("4.10") || 
     gradle.gradleVersion.startsWith("4.9")
-) {
+)
+{
     println "Gradle with version >= 4.9 detected"
-    gradle_version = "5+"
-} else {
+    gradle_version = "5-6"
+}
+else if (gradle.gradleVersion.startsWith("7")) {
+    println "Gradle with version >= 7 detected"
+    gradle_version = "7"
+}
+else {
     println "Gradle with version < 4.9 detected"
 }
 
@@ -43,7 +49,9 @@ List junit = [
 allprojects {
 
     apply plugin: 'maven'
+    //apply plugin: 'maven-publish' // gradle7放开
     apply plugin: 'java'
+    //apply plugin: 'java-library' // gradle7放开
     apply plugin: 'eclipse'
     apply plugin: 'idea'
 
@@ -55,6 +63,7 @@ allprojects {
     // In this section you declare where to find the dependencies of your project
     repositories {
         maven {
+            //allowInsecureProtocol=true // gradle7放开
             url "http://maven.aliyun.com/nexus/content/groups/public/"
         }
         mavenLocal()
@@ -62,17 +71,24 @@ allprojects {
     }
 
     dependencies {
-        compile apache, logger
-        testCompile apache, logger, junit
+        //compile apache, logger
+        //testCompile apache, logger, junit
 
         if (gradle_version.startsWith("4")) {
-            compile lombok
-            testCompile lombok
+            compile apache, logger, lombok
+            testCompile apache, logger, lombok
         }
-        if (gradle_version.startsWith("5+")) {
-            compileOnly lombok
-            annotationProcessor lombok
-            testAnnotationProcessor lombok
+        if (gradle_version.startsWith("5-6")) {
+            compileOnly apache, logger, lombok
+            annotationProcessor apache, logger, lombok
+            testAnnotationProcessor apache, logger, lombok
+        }
+        // gradle7
+        // 依赖引入上，complie命令改为api/implementation，runtime改为runtimeOnly,去除testCompile
+        if (gradle_version.startsWith("7")) {
+            implementation apache, logger, lombok
+            runtimeOnly apache, logger, lombok
+            testImplementation apache, logger, lombok
         }
     }
 
@@ -95,12 +111,23 @@ allprojects {
         }
     }
 
+    // ### springboot 打包方式
+    // springBoot {
+    //    mainClass = 'cn.webank.ngis.core.biz.server.NgisCoreServer'
+    //}
+    //springboot升级2.5.1时，构建的jar包会默认在最后添加plain后缀，需要在build.gradle中修改如下：
+    //jar {
+    //    enabled = true
+    //    archiveClassifier=''
+    //}
+    
     jar {
 
         destinationDir file('dist/app')
 
         doLast {
-            archiveName project.name + '-' + version + '.jar'
+            archiveFileName project.name + '-' + version + '.jar'
+
             exclude '**/*.xml'
             exclude '**/*.properties'
 

@@ -2,28 +2,27 @@ group 'org.code.blocks'
 version "0.1.4"
 
 def gradle_version = "4"
-if (gradle.gradleVersion.startsWith("6")
-        || gradle.gradleVersion.startsWith("5")
-        || gradle.gradleVersion.startsWith("4.10")
-        || gradle.gradleVersion.startsWith("4.9")
+// 暂时不支持gradle7
+if (gradle.gradleVersion.startsWith("6") || 
+    gradle.gradleVersion.startsWith("5") || 
+    gradle.gradleVersion.startsWith("4.10") || 
+    gradle.gradleVersion.startsWith("4.9")
 ) {
     println "Gradle with version >= 4.9 detected"
-    gradle_version = "5"
+    gradle_version = "5+"
 } else {
     println "Gradle with version < 4.9 detected"
 }
 
 List lombok = [
-        "org.projectlombok:lombok:1.16.14"
+        "org.projectlombok:lombok:$lombok_version"
 ]
 
 List apache = [
-        "org.apache.commons:commons-lang3:3.5"
+        "org.apache.commons:commons-lang3:$apache_commons_version"
 ]
 
 
-def logger_version = "2.11.1"
-def slf4j_version = "1.7.25"
 List logger = [
         "org.slf4j:jul-to-slf4j:$slf4j_version",
         //可注释, 依赖jul-to-slf4j
@@ -38,7 +37,7 @@ List logger = [
 ]
 
 List junit = [
-        "junit:junit:4.12",
+        "junit:junit:$junit_version",
 ]
 
 allprojects {
@@ -70,7 +69,8 @@ allprojects {
             compile lombok
             testCompile lombok
         }
-        if (gradle_version.startsWith("5")) {
+        if (gradle_version.startsWith("5+")) {
+            compileOnly lombok
             annotationProcessor lombok
             testAnnotationProcessor lombok
         }

@@ -41,7 +41,7 @@ public class CglibBeanTest {
 
         // 获得bean的实体
         Object object = bean.getObject();
-        System.out.println("object:" + JsonUtils.objToJsonStr(object));
+        System.out.println("object:" + JsonUtils.objToJson(object));
 
         // 通过反射查看所有方法名
         Class clazz = object.getClass();

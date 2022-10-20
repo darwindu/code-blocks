@@ -1,6 +1,7 @@
 package org.code.blocks.spring.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.code.blocks.common.errorcode.ErrorCode;
 import org.code.blocks.common.protocol.response.ResponseData;
 import org.code.blocks.common.util.JsonUtils;
 import org.code.blocks.spring.BaseTest;
@@ -19,8 +20,8 @@ public class HelloWorldSpringServiceTest extends BaseTest {
 
         log.info("port: {}", listenPort);
         ResponseData<String> responseData = helloWorldSpringService.say();
-        log.info("responseData: {}", JsonUtils.objToJsonStr(responseData));
-        Assert.assertEquals(CommonErrorCode.SUCCESS.getCode(), responseData.getErrorCode().intValue());
+        log.info("responseData: {}", JsonUtils.objToJson(responseData));
+        Assert.assertEquals(ErrorCode.SUCCESS.getCode(), responseData.getCode().intValue());
     }
 
 }

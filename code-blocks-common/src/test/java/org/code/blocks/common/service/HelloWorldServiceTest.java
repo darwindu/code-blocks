@@ -1,6 +1,7 @@
 package org.code.blocks.common.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.code.blocks.common.errorcode.ErrorCode;
 import org.code.blocks.common.protocol.response.ResponseData;
 import org.code.blocks.common.service.impl.HelloWorldServiceImpl;
 import org.code.blocks.common.util.JsonUtils;
@@ -21,6 +22,6 @@ public class HelloWorldServiceTest {
 
         ResponseData<String> responseData =  helloWorldService.say();
         log.info("responseData: {}", JsonUtils.objToJson(responseData));
-        Assert.assertEquals(CommonErrorCode.SUCCESS.getCode(), responseData.getErrorCode().intValue());
+        Assert.assertEquals(ErrorCode.SUCCESS.getCode(), responseData.getCode().intValue());
     }
 }

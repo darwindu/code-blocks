@@ -1,11 +1,13 @@
 package org.code.blocks.spring.protocol.enums;
 
+import org.code.blocks.common.errorcode.IErrorCode;
+
 /**
  * Define Error Code and the corresponding Error Message.
  *
  * @author darwindu
  */
-public enum SpringErrorCode implements ErrorCode {
+public enum SpringErrorCode implements IErrorCode {
 
     /**
      * The success.
@@ -22,17 +24,17 @@ public enum SpringErrorCode implements ErrorCode {
     /**
      * error message.
      */
-    private String codeDesc;
+    private String msg;
 
     /**
      * Error Code Constructor.
      *
      * @param code The CommonErrorCode
-     * @param codeDesc The CommonErrorCode Description
+     * @param msg The CommonErrorCode Description
      */
-    SpringErrorCode(int code, String codeDesc) {
+    SpringErrorCode(int code, String msg) {
         this.code = code;
-        this.codeDesc = codeDesc;
+        this.msg = msg;
     }
 
     /**
@@ -58,16 +60,16 @@ public enum SpringErrorCode implements ErrorCode {
      *
      * @return the CommonErrorCode Description
      */
-    public String getCodeDesc() {
-        return codeDesc;
+    public String getMsg() {
+        return msg;
     }
 
     /**
      * Sets the CommonErrorCode Description.
      *
-     * @param codeDesc the new CommonErrorCode Description
+     * @param msg the new CommonErrorCode Description
      */
-    protected void setCodeDesc(String codeDesc) {
-        this.codeDesc = codeDesc;
+    protected void setMsg(String msg) {
+        this.msg = msg;
     }
 }

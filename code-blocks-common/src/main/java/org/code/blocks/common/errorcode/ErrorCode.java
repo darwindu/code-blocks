@@ -61,11 +61,20 @@ public enum ErrorCode implements IErrorCode {
      * mybatis bad sql.
      */
     MYBATIS_BADSQL_EXCEPTION(160106, "数据库异常，请联系管理员[badsql]"),
-
+    /**
+     * mybatis sql.
+     */
+    MYBATIS_EXCEPTION(160107, "数据库操作异常"),
     /**
      * sql uni index repeat.
      */
-    SQL_UNI_REPEAT(160107, "记录已存在[uni]"),
+    SQL_UNI_REPEAT(160108, "记录已存在[uni]"),
+    /**
+     * record not exist.
+     */
+    RECORD_NOT_EXIST(160109, "记录不存在"),
+
+
 
     /**
      * out of ranges error.

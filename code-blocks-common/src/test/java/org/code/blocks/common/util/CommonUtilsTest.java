@@ -3,6 +3,7 @@ package org.code.blocks.common.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.code.blocks.common.errorcode.ErrorCode;
 import org.code.blocks.common.exception.ValidateException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,7 +29,7 @@ public class CommonUtilsTest {
 
             CommonUtils.validateBytesgLength(MerchantConstant.MERCHANT_MERCHANTID, merchantId, new MerchantConstant().getMerchantMap(), true);
         } catch (ValidateException e) {
-            Assert.assertEquals(CommonErrorCode.OUT_OF_RANGES_ERROR.getCode(), e.getErrorCode().intValue());
+            Assert.assertEquals(ErrorCode.OUT_OF_RANGES_ERROR.getCode(), e.getCode().intValue());
         }
     }
 
@@ -47,7 +48,7 @@ public class CommonUtilsTest {
 
             CommonUtils.validateBytesgLength(MerchantConstant.MERCHANT_MERCHANTNAME, merchantName, new MerchantConstant().getMerchantMap(), true);
         } catch (ValidateException e) {
-            Assert.assertEquals(CommonErrorCode.OUT_OF_RANGES_ERROR.getCode(), e.getErrorCode().intValue());
+            Assert.assertEquals(ErrorCode.OUT_OF_RANGES_ERROR.getCode(), e.getCode().intValue());
         }
     }
 

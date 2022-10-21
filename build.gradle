@@ -76,19 +76,20 @@ allprojects {
 
         if (gradle_version.startsWith("4")) {
             compile apache, logger, lombok
-            testCompile apache, logger, lombok
+            testCompile apache, logger, lombok, junit
         }
         if (gradle_version.startsWith("5-6")) {
             compileOnly apache, logger, lombok
             annotationProcessor apache, logger, lombok
-            testAnnotationProcessor apache, logger, lombok
+            //testAnnotationProcessor apache, logger, lombok, junit
+            testCompile apache, logger, lombok, junit
         }
         // gradle7
         // 依赖引入上，complie命令改为api/implementation，runtime改为runtimeOnly,去除testCompile
         if (gradle_version.startsWith("7")) {
             implementation apache, logger, lombok
             runtimeOnly apache, logger, lombok
-            testImplementation apache, logger, lombok
+            testImplementation apache, logger, lombok, junit
         }
     }
 

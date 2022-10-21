@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 @Slf4j
-public class ApplicationContextHelper implements ApplicationContextAware {
+public class ApplicationContextHelper /*implements ApplicationContextAware*/ {
 
     /**
      * 检查数据启动参数
      * @param applicationContext
      * @throws BeansException
      */
-    @Override
+    /*@Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
         try {
@@ -32,5 +32,5 @@ public class ApplicationContextHelper implements ApplicationContextAware {
             // 当检测数据库连接失败时, 停止项目启动
             System.exit(-1);
         }
-    }
+    }*/
 }

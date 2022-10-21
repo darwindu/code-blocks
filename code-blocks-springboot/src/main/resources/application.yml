@@ -2,11 +2,16 @@
 spring:
   profiles:
     active: dev
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/girl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8
-    username: root
-    password: root
+  # exclude jdbc
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  #datasource:
+  #  driver-class-name: com.mysql.jdbc.Driver
+  #  url: jdbc:mysql://localhost:3306/girl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8
+  #  username: root
+  #  password: root
+
 
 ########################################## mybatis Info #####################################
 mybatis:

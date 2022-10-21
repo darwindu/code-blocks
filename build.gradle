@@ -2,7 +2,7 @@ group 'org.code.blocks'
 version "0.1.4"
 
 def gradle_version = "4"
-// 暂时不支持gradle7
+
 if (gradle.gradleVersion.startsWith("6") || 
     gradle.gradleVersion.startsWith("5") || 
     gradle.gradleVersion.startsWith("4.10") || 
@@ -87,6 +87,7 @@ allprojects {
         // gradle7
         // 依赖引入上，complie命令改为api/implementation，runtime改为runtimeOnly,去除testCompile
         if (gradle_version.startsWith("7")) {
+            annotationProcessor apache, logger, lombok
             implementation apache, logger, lombok
             runtimeOnly apache, logger, lombok
             testImplementation apache, logger, lombok, junit
@@ -140,6 +141,7 @@ allprojects {
             }
             copy {
                 from configurations.runtime
+                //from configurations.runtimeClasspath // gradle7放开
                 into 'dist/lib'
             }
             copy {

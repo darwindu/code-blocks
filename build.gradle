@@ -127,7 +127,8 @@ allprojects {
         //destinationDirectory file('dist/app') // gradle 7
 
         doLast {
-            archiveFileName project.name + '-' + version + '.jar'
+            archiveName project.name + '-' + version + '.jar'
+            //archiveFileName project.name + '-' + version + '.jar' // gradle 7
 
             exclude '**/*.xml'
             exclude '**/*.properties'

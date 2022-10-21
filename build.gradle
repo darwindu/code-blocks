@@ -124,6 +124,7 @@ allprojects {
     jar {
 
         destinationDir file('dist/app')
+        //destinationDirectory file('dist/app') // gradle 7
 
         doLast {
             archiveFileName project.name + '-' + version + '.jar'

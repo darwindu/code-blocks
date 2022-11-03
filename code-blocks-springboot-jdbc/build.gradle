@@ -22,7 +22,7 @@ List validate = [
         "org.hibernate:hibernate-validator:$hibernate_validator_version"
 ]
 
-def mybatis = [
+List mybatis = [
         "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatis_springboot_version"
 ]
 
